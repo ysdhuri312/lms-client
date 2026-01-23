@@ -13,7 +13,7 @@ const Header = () => {
         <div className='flex justify-between items-center my-2'>
           <div className='flex items-center'>
             <div className='text-xl font-bold'>
-              Learn<span className='text-amber-600 text-2xl'>&</span>Earn
+              Learn<span className='text-blue-600 text-2xl'>&</span>Earn
             </div>
             <nav className='hidden md:flex items-center ml-7 cursor-pointer text-sm'>
               <a className='mr-3'>Home</a>
@@ -35,12 +35,12 @@ const Header = () => {
               />
             </div>
             <div className='ml-1'>
-              <button className='bg-sky-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+              <button className='bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                 Log in
               </button>
             </div>
             <div className='ml-1'>
-              <button className='bg-sky-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+              <button className='bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                 Sign up
               </button>
             </div>
@@ -74,12 +74,12 @@ const Header = () => {
                 className='mb-2 text-sm'
                 onClick={() => setMobileMenu(false)}
               >
-                <button className='block w-full bg-sky-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+                <button className='block w-full bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                   Log in
                 </button>
               </div>
               <div className='text-sm'>
-                <button className='block w-full bg-sky-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+                <button className='block w-full bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                   Sign up
                 </button>
               </div>
