@@ -1,7 +1,9 @@
 /** @format */
 
+import MainLayout from '../shared/layouts/MainLayout';
+
 function App() {
-  return <>APP</>;
+  return <MainLayout></MainLayout>;
 }
 
 export default App;
