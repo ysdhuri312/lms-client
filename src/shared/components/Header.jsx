@@ -21,7 +21,7 @@ const Header = () => {
             </nav>
           </div>
           <nav className='hidden md:flex items-center'>
-            <div className='flex items-center rounded-md bg-white/5 pl-2 outline-1 -outline-offset-1 outline-[rgba(0,0,0,0.2)] has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-1 has-[input:focus-within]:outline-gray-500'>
+            <div className='flex items-center rounded-sm bg-white/5 pl-2 outline-1 -outline-offset-1 outline-[rgba(0,0,0,0.2)] has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-1 has-[input:focus-within]:outline-gray-500'>
               <div className='shrink-0 text-gray-400 select-none sm:text-sm/6'>
                 <Search size={17} />
               </div>
@@ -35,12 +35,12 @@ const Header = () => {
               />
             </div>
             <div className='ml-1'>
-              <button className='bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+              <button className='bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                 Log in
               </button>
             </div>
             <div className='ml-1'>
-              <button className='bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+              <button className='bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                 Sign up
               </button>
             </div>
@@ -58,13 +58,13 @@ const Header = () => {
           <div className='my-2'>
             <nav className='text-sm cursor-pointer'>
               <a
-                className='block bg-gray-200 mb-2 py-1 pl-1 rounded-md'
+                className='block bg-gray-200 mb-2 py-1 pl-1 rounded-sm'
                 onClick={() => setMobileMenu(false)}
               >
                 Home
               </a>
               <a
-                className='block mb-2 bg-gray-200 py-1 pl-1 rounded-md'
+                className='block mb-2 bg-gray-200 py-1 pl-1 rounded-sm'
                 onClick={() => setMobileMenu(false)}
               >
                 Courses
@@ -74,17 +74,17 @@ const Header = () => {
                 className='mb-2 text-sm'
                 onClick={() => setMobileMenu(false)}
               >
-                <button className='block w-full bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+                <button className='block w-full bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                   Log in
                 </button>
               </div>
               <div className='text-sm'>
-                <button className='block w-full bg-blue-600 rounded-md py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+                <button className='block w-full bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
                   Sign up
                 </button>
               </div>
               <div className='my-2'>
-                <div className='flex items-center rounded-md bg-white/5 pl-2 outline-1 -outline-offset-1 outline-[rgba(0,0,0,0.2)] has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-1 has-[input:focus-within]:outline-gray-500'>
+                <div className='flex items-center rounded-sm bg-white/5 pl-2 outline-1 -outline-offset-1 outline-[rgba(0,0,0,0.2)] has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-1 has-[input:focus-within]:outline-gray-500'>
                   <div className='shrink-0 text-gray-400 select-none sm:text-sm/6'>
                     <Search size={17} />
                   </div>
