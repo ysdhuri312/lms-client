@@ -1,5 +1,6 @@
 /** @format */
 
+import CallToAction from '../components/CallToAction';
 import Courses from '../components/Courses';
 import Hero from '../components/Hero';
 import Testimonials from '../components/Testimonials';
@@ -10,6 +11,7 @@ const Home = () => {
       <Hero />
       <Courses />
       <Testimonials />
+      <CallToAction />
     </div>
   );
 };
