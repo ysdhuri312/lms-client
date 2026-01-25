@@ -51,7 +51,7 @@ const Footer = () => {
               weekly.
             </p>
 
-            <div className='flex gap-2'>
+            <div className='flex gap-2 md:flex-col xl:flex-row'>
               <input
                 type='email'
                 placeholder='Enter your email'
