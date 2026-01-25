@@ -12,7 +12,7 @@ const Hero = () => {
         supportive community to help you achieve your personal and professional
         goals.
       </p>
-      <div className='relative w-100 sm:w-120 my-4'>
+      <div className='relative w-100 sm:w-120 mt-4'>
         <input
           type='text'
           placeholder='Search course'
