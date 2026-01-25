@@ -2,6 +2,7 @@
 
 import { Menu, X, Search } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -16,7 +17,9 @@ const Header = () => {
               Learn<span className='text-blue-600 text-2xl'>&</span>Earn
             </div>
             <nav className='hidden md:flex items-center ml-7 cursor-pointer text-sm'>
-              <a className='mr-3'>Home</a>
+              <Link to='/' className='mr-3'>
+                Home
+              </Link>
               <a className=''>Courses</a>
             </nav>
           </div>
@@ -30,19 +33,25 @@ const Header = () => {
                 type='text'
                 value={searchInput}
                 placeholder='Type to search'
-                className='block min-w-0 grow py-1 pr-3 pl-1 placeholder:text-gray-500 text-xm focus:outline-none sm:text-sm/6'
+                className='block min-w-0 grow py-2 pr-3 pl-1 placeholder:text-gray-500 text-xm focus:outline-none sm:text-sm/6'
                 onChange={(e) => setSearchInput(e.target.value)}
               />
             </div>
             <div className='ml-1'>
-              <button className='bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+              <Link
+                to='/login'
+                className='bg-blue-600 rounded-sm py-2 px-3 text-sm text-white hover:bg-blue-700 hover:data-active:bg-blue-700 cursor-pointer'
+              >
                 Log in
-              </button>
+              </Link>
             </div>
             <div className='ml-1'>
-              <button className='bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
-                Sign up
-              </button>
+              <Link
+                to='/register'
+                className='bg-blue-600 rounded-sm py-2 px-3 text-sm text-white hover:bg-blue-700 hover:data-active:bg-blue-700 cursor-pointer'
+              >
+                Register
+              </Link>
             </div>
           </nav>
           <button
@@ -57,31 +66,40 @@ const Header = () => {
         <div className='md:hidden max-w-7xl mx-auto px-4 sm:px-6 md:px-8'>
           <div className='my-2'>
             <nav className='text-sm cursor-pointer'>
-              <a
-                className='block bg-gray-200 mb-2 py-1 pl-1 rounded-sm'
+              <Link
+                to='/'
+                className='block bg-gray-200 mb-2 py-2 pl-1 rounded-sm'
                 onClick={() => setMobileMenu(false)}
               >
                 Home
-              </a>
-              <a
-                className='block mb-2 bg-gray-200 py-1 pl-1 rounded-sm'
+              </Link>
+              <Link
+                to='courses'
+                className='block mb-2 bg-gray-200 py-2 pl-1 rounded-sm'
                 onClick={() => setMobileMenu(false)}
               >
                 Courses
-              </a>
+              </Link>
               <hr className='text-gray-200 py-1' />
               <div
                 className='mb-2 text-sm'
                 onClick={() => setMobileMenu(false)}
               >
-                <button className='block w-full bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
+                <Link
+                  to='login'
+                  className='block w-full bg-blue-600 rounded-sm py-2 px-3 text-sm text-white hover:bg-blue-700 hover:data-active:bg-blue-700 cursor-pointer'
+                >
                   Log in
-                </button>
+                </Link>
               </div>
               <div className='text-sm'>
-                <button className='block w-full bg-blue-600 rounded-sm py-1 px-3 text-sm text-white data-hover:bg-sky-500 data-hover:data-active:bg-sky-700 cursor-pointer'>
-                  Sign up
-                </button>
+                <Link
+                  to='register'
+                  className='block w-full bg-blue-600 rounded-sm py-2 px-3 text-sm text-white hover:bg-blue-700 hover:data-active:bg-blue-700 cursor-pointer'
+                  onClick={() => setMobileMenu(false)}
+                >
+                  Register
+                </Link>
               </div>
               <div className='my-2'>
                 <div className='flex items-center rounded-sm bg-white/5 pl-2 outline-1 -outline-offset-1 outline-[rgba(0,0,0,0.2)] has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-1 has-[input:focus-within]:outline-gray-500'>
@@ -93,7 +111,7 @@ const Header = () => {
                     type='text'
                     value={searchInput}
                     placeholder='Type to search'
-                    className='block min-w-0 grow py-1 pr-3 pl-1 placeholder:text-gray-500 text-xm focus:outline-none sm:text-sm/6'
+                    className='block min-w-0 grow py-2 pr-3 pl-1 placeholder:text-gray-500 text-xm focus:outline-none sm:text-sm/6'
                     onChange={(e) => setSearchInput(e.target.value)}
                   />
                 </div>
