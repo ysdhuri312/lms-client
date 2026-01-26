@@ -7,7 +7,7 @@ import Stars from './Stars';
 const CourseCard = () => {
   return (
     <div className='w-full max-w-sm md:max-w-64 bg-neutral-primary-soft border border-gray-300 rounded-md shadow-xs overflow-hidden'>
-      <Link href='#'>
+      <Link to='/course'>
         <img
           className='w-full rounded-t-lg mb-6 object-cover'
           src={course_1}
@@ -21,7 +21,7 @@ const CourseCard = () => {
             4.8 out of 5
           </span>
         </div>
-        <Link href='#'>
+        <Link to='/course'>
           <h5 className='text-base font-bold'>Intoduction to JavaScript</h5>
         </Link>
         <div className='flex items-center justify-between mt-7'>
