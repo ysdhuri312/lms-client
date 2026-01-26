@@ -6,13 +6,14 @@ import Home from '../features/home/pages/Home';
 import Auth from '../features/auth/pages/Auth';
 import LoginForm from '../features/auth/components/LoginForm';
 import RegisterForm from '../features/auth/components/RegisterForm';
+import CourseList from '../features/course_list/page/CourseList';
 
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
     children: [
       { element: <Home />, index: true },
-      { path: '/courses', element: <Home /> },
+      { path: '/courses', element: <CourseList /> },
       {
         element: <Auth />,
         children: [

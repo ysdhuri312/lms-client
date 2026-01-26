@@ -1,18 +1,19 @@
 /** @format */
 
+import { Link } from 'react-router-dom';
 import { course_1 } from '../../assets';
 import Stars from './Stars';
 
 const CourseCard = () => {
   return (
     <div className='w-full max-w-sm md:max-w-64 bg-neutral-primary-soft border border-gray-300 rounded-md shadow-xs overflow-hidden'>
-      <a href='#'>
+      <Link href='#'>
         <img
           className='w-full rounded-t-lg mb-6 object-cover'
           src={course_1}
           alt='course image'
         />
-      </a>
+      </Link>
       <div className='p-2'>
         <div className='flex items-center space-x-3 mb-6'>
           <Stars />
@@ -20,14 +21,14 @@ const CourseCard = () => {
             4.8 out of 5
           </span>
         </div>
-        <a href='#'>
+        <Link href='#'>
           <h5 className='text-base font-bold'>Intoduction to JavaScript</h5>
-        </a>
+        </Link>
         <div className='flex items-center justify-between mt-7'>
-          <span className='text-xl font-extrabold text-heading'>$599</span>
+          <span className='text-xl font-bold'>$599</span>
           <button
             type='button'
-            className='inline-flex items-center cursor-pointer text-white bg-blue-600 hover:bg-blue-500 box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-sm text-sm px-3 py-2 focus:outline-none'
+            className='inline-flex items-center cursor-pointer text-white bg-blue-600 hover:bg-blue-500 box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-sm text-xs px-2 py-1 focus:outline-none'
           >
             <svg
               className='w-4 h-4 me-1.5'
