@@ -20,7 +20,9 @@ const Header = () => {
               <Link to='/' className='mr-3'>
                 Home
               </Link>
-              <a className=''>Courses</a>
+              <Link to='courses' className=''>
+                Courses
+              </Link>
             </nav>
           </div>
           <nav className='hidden md:flex items-center'>
