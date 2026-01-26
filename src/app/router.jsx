@@ -7,6 +7,7 @@ import Auth from '../features/auth/pages/Auth';
 import LoginForm from '../features/auth/components/LoginForm';
 import RegisterForm from '../features/auth/components/RegisterForm';
 import CourseList from '../features/course_list/page/CourseList';
+import Course from '../features/course/pages/Course';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { element: <Home />, index: true },
       { path: '/courses', element: <CourseList /> },
+      { path: '/course', element: <Course /> },
       {
         element: <Auth />,
         children: [
