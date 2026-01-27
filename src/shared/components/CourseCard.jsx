@@ -1,13 +1,12 @@
 /** @format */
 
 import { Link } from 'react-router-dom';
-import { course_1 } from '../../assets';
 import Stars from './Stars';
 
-const CourseCard = ({ thumbnail, ratings, title, price }) => {
+const CourseCard = ({ id, thumbnail, ratings, title, price }) => {
   return (
     <div className='w-full max-w-sm md:max-w-64 bg-neutral-primary-soft border border-gray-300 rounded-md shadow-xs overflow-hidden'>
-      <Link to='/course'>
+      <Link to={`/course/${id}`}>
         <img
           className='w-full rounded-t-lg mb-6 object-cover'
           src={thumbnail}
@@ -21,7 +20,7 @@ const CourseCard = ({ thumbnail, ratings, title, price }) => {
             {ratings} out of 5
           </span>
         </div>
-        <Link to='/course'>
+        <Link to={`/course/${id}`}>
           <h5 className='text-base font-bold min-h-14'>{title}</h5>
         </Link>
         <div className='flex items-center justify-between mt-7'>

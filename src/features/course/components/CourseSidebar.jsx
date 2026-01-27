@@ -1,12 +1,23 @@
 /** @format */
 
-import { course_1 } from '../../../assets';
+import useCourseDetails from '../hooks/useCourseDetails';
 
-const CourseSidebar = () => {
+const CourseSidebar = ({ id }) => {
+  const { course, error, loading } = useCourseDetails(id);
+
+  if (error) return <p>Somthing went wrong....</p>;
+  if (loading) return <p>Course details loading...</p>;
+
+  const { price, courseTime, moduleCount, thumbnail } = course;
+
   return (
     <div className='sticky top-6'>
       <div className='bg-white rounded-lg shadow-lg overflow-hidden'>
-        <img src={course_1} alt='Course' className='w-full h-44 object-cover' />
+        <img
+          src={thumbnail}
+          alt='Course'
+          className='w-full h-44 object-cover'
+        />
 
         <div className='p-6'>
           <p className='text-red-500 text-sm font-medium mb-2'>
@@ -14,14 +25,14 @@ const CourseSidebar = () => {
           </p>
 
           <div className='flex items-center gap-3 mb-4'>
-            <span className='text-3xl font-bold'>$55.99</span>
+            <span className='text-3xl font-bold'>${price}</span>
             <span className='line-through text-gray-400'>$69.99</span>
             <span className='text-green-600 font-medium'>20% off</span>
           </div>
 
           <div className='flex justify-between text-sm text-gray-600 mb-6'>
-            <span>⏱ 49h 30m</span>
-            <span>📘 4 lessons</span>
+            <span>⏱ {courseTime}</span>
+            <span>📘 {moduleCount} lessons</span>
           </div>
 
           <button className='w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold mb-6'>
