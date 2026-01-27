@@ -13,9 +13,9 @@ const Header = () => {
       <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8'>
         <div className='flex justify-between items-center my-2'>
           <div className='flex items-center'>
-            <div className='text-xl font-bold'>
+            <Link to='/' className='text-xl font-bold cursor-pointer'>
               Learn<span className='text-blue-600 text-2xl'>&</span>Earn
-            </div>
+            </Link>
             <nav className='hidden md:flex items-center ml-7 cursor-pointer text-sm'>
               <Link to='/' className='mr-3'>
                 Home
