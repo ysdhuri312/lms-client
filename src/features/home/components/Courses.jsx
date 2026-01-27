@@ -1,9 +1,16 @@
 /** @format */
 
+import { Link } from 'react-router-dom';
 import { accenture, adobe, microsoft, paypal, walmart } from '../../../assets';
 import CourseCard from '../../../shared/components/CourseCard';
+import { useFeatureCourses } from '../hooks/useFeatureCourses';
 
 const Courses = () => {
+  const { featuredCourses, error, loading } = useFeatureCourses();
+
+  if (loading) return <p>Loading featured courses...</p>;
+  if (error) return <p>Something went wrong</p>;
+
   return (
     <div>
       <div className='mb-5'>
@@ -34,15 +41,27 @@ const Courses = () => {
           deliver results.
         </p>
         <div className='flex flex-col justify-center sm:flex-row flex-wrap md:flex-row items-center gap-3 mt-9'>
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+          {featuredCourses.map((course) => {
+            const { id, thumbnail, ratings, title, price } = course;
+
+            return (
+              <CourseCard
+                key={id}
+                thumbnail={thumbnail}
+                ratings={ratings}
+                title={title}
+                price={price}
+              />
+            );
+          })}
         </div>
         <div className='flex justify-center mt-10'>
-          <button className='text-sm text-gray-500 border border-gray-300 px-8 py-3 outline-0 outline-[rgba(0,0,0,0.1)] rounded-sm cursor-pointer'>
+          <Link
+            to='/courses'
+            className='text-sm text-gray-500 border border-gray-300 px-8 py-3 outline-0 outline-[rgba(0,0,0,0.1)] rounded-sm cursor-pointer'
+          >
             Show all courses
-          </button>
+          </Link>
         </div>
       </div>
     </div>

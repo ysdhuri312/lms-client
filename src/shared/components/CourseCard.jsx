@@ -4,28 +4,28 @@ import { Link } from 'react-router-dom';
 import { course_1 } from '../../assets';
 import Stars from './Stars';
 
-const CourseCard = () => {
+const CourseCard = ({ thumbnail, ratings, title, price }) => {
   return (
     <div className='w-full max-w-sm md:max-w-64 bg-neutral-primary-soft border border-gray-300 rounded-md shadow-xs overflow-hidden'>
       <Link to='/course'>
         <img
           className='w-full rounded-t-lg mb-6 object-cover'
-          src={course_1}
+          src={thumbnail}
           alt='course image'
         />
       </Link>
       <div className='p-2'>
-        <div className='flex items-center space-x-3 mb-6'>
+        <div className='flex items-center space-x-3 mb-4'>
           <Stars />
           <span className='bg-brand-softer border border-gray-300 text-gray-600 text-xs font-medium px-1.5 py-0.5 rounded-sm'>
-            4.8 out of 5
+            {ratings} out of 5
           </span>
         </div>
         <Link to='/course'>
-          <h5 className='text-base font-bold'>Intoduction to JavaScript</h5>
+          <h5 className='text-base font-bold min-h-14'>{title}</h5>
         </Link>
         <div className='flex items-center justify-between mt-7'>
-          <span className='text-xl font-bold'>$599</span>
+          <span className='text-xl font-bold'>${price}</span>
           <button
             type='button'
             className='inline-flex items-center cursor-pointer text-white bg-blue-600 hover:bg-blue-500 box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-sm text-xs px-2 py-1 focus:outline-none'
@@ -41,9 +41,9 @@ const CourseCard = () => {
             >
               <path
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
                 d='M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312'
               />
             </svg>
