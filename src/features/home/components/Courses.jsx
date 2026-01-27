@@ -3,10 +3,10 @@
 import { Link } from 'react-router-dom';
 import { accenture, adobe, microsoft, paypal, walmart } from '../../../assets';
 import CourseCard from '../../../shared/components/CourseCard';
-import { useFeatureCourses } from '../hooks/useFeatureCourses';
+import { useFeaturedCourses } from '../hooks/useFeaturedCourses';
 
 const Courses = () => {
-  const { featuredCourses, error, loading } = useFeatureCourses();
+  const { featuredCourses, error, loading } = useFeaturedCourses();
 
   if (loading) return <p>Loading featured courses...</p>;
   if (error) return <p>Something went wrong</p>;
