@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import fetchFeaturedCourses from '../home.api';
 
-export const useFeatureCourses = () => {
+export const useFeaturedCourses = () => {
   const [featuredCourses, setFeaturedCourses] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
