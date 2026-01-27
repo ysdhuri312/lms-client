@@ -1,12 +1,12 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
-import fetchAllCourses from '../courseList.api';
+import fetchAllCourses from '../courseList.api.js';
 
 export const useAllCourses = () => {
   const [allCourses, setAllCourses] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchAllCourses()
@@ -15,7 +15,7 @@ export const useAllCourses = () => {
         setAllCourses(getAllCourses);
       })
       .catch((err) => setError(err))
-      .finally(() => setLoading(true));
+      .finally(() => setLoading(false));
   }, []);
 
   return { allCourses, error, loading };
