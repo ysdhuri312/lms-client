@@ -2,8 +2,14 @@
 
 import { Search } from 'lucide-react';
 import CourseCard from '../../../shared/components/CourseCard';
+import { useAllCourses } from '../hooks/useAllCourses';
 
 const CourseList = () => {
+  const { allCourses, error, loading } = useAllCourses();
+
+  if (error) return <p>Somthing went worng...</p>;
+  if (loading) return <p>Courses loding...</p>;
+
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-30 mb-5'>
       <div className='sm:flex w-full flex-row justify-between items-center'>
@@ -29,14 +35,19 @@ const CourseList = () => {
         </div>
       </div>
       <div className='mt-10 flex flex-wrap justify-center sm:justify-items-start gap-5'>
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
+        {allCourses.map((course) => {
+          const { id, thumbnail, ratings, title, price } = course;
+
+          return (
+            <CourseCard
+              key={id}
+              thumbnail={thumbnail}
+              ratings={ratings}
+              title={title}
+              price={price}
+            />
+          );
+        })}
       </div>
     </div>
   );
