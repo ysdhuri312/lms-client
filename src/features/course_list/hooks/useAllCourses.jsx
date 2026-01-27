@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
-import fetchAllCourses from '../home.api';
+import fetchAllCourses from '../courseList.api';
 
 export const useAllCourses = () => {
   const [allCourses, setAllCourses] = useState([]);
@@ -15,7 +15,7 @@ export const useAllCourses = () => {
         setAllCourses(getAllCourses);
       })
       .catch((err) => setError(err))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(true));
   }, []);
 
   return { allCourses, error, loading };
