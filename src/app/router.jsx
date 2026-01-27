@@ -8,6 +8,7 @@ import LoginForm from '../features/auth/components/LoginForm';
 import RegisterForm from '../features/auth/components/RegisterForm';
 import CourseList from '../features/course_list/page/CourseList';
 import Course from '../features/course/pages/Course';
+import NotFound from '../shared/components/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
           { path: 'login', element: <LoginForm /> },
           { path: 'register', element: <RegisterForm /> },
         ],
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
