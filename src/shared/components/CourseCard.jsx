@@ -15,7 +15,7 @@ const CourseCard = ({ id, thumbnail, ratings, title, price }) => {
       </Link>
       <div className='p-2'>
         <div className='flex items-center space-x-3 mb-4'>
-          <Stars />
+          <Stars ratings={ratings} />
           <span className='bg-brand-softer border border-gray-300 text-gray-600 text-xs font-medium px-1.5 py-0.5 rounded-sm'>
             {ratings} out of 5
           </span>

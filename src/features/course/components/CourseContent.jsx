@@ -26,7 +26,7 @@ const CourseContent = ({ id }) => {
         <div className='flex gap-2'>
           <span>{ratings}</span>
           <div>
-            <Stars />
+            <Stars ratings={ratings} />
           </div>
           <p>
             (<span>5</span> ratings)
