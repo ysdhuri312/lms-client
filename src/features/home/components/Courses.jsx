@@ -47,6 +47,7 @@ const Courses = () => {
             return (
               <CourseCard
                 key={id}
+                id={id}
                 thumbnail={thumbnail}
                 ratings={ratings}
                 title={title}
