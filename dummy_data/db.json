@@ -6,7 +6,24 @@
       "lastName": "Doe",
       "email": "john.doe@example.com",
       "role": "student",
-      "enrolledCourses": [101, 102]
+      "enrolledCourses": [
+        {
+          "enrolledCourseId": 1,
+          "courseId": 101,
+          "completedLectures": 1,
+          "totalLectures": 4,
+          "progress": 25,
+          "status": "Ongoing"
+        },
+        {
+          "enrolledCourseId": 2,
+          "courseId": 102,
+          "completedLectures": 1,
+          "totalLectures": 4,
+          "progress": 25,
+          "status": "Ongoing"
+        }
+      ]
     },
     {
       "id": 1,
