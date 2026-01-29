@@ -9,6 +9,8 @@ import RegisterForm from '../features/auth/components/RegisterForm';
 import CourseList from '../features/course_list/page/CourseList';
 import Course from '../features/course/pages/Course';
 import NotFound from '../shared/components/NotFound';
+import Enrollments from '../features/student/components/Enrollments';
+import StudentPage from '../features/student/pages/StudentPage';
 
 const router = createBrowserRouter([
   {
@@ -20,9 +22,13 @@ const router = createBrowserRouter([
       {
         element: <Auth />,
         children: [
-          { path: 'login', element: <LoginForm /> },
-          { path: 'register', element: <RegisterForm /> },
+          { path: '/login', element: <LoginForm /> },
+          { path: '/register', element: <RegisterForm /> },
         ],
+      },
+      {
+        element: <StudentPage />,
+        children: [{ path: '/my-courses', element: <Enrollments /> }],
       },
       {
         path: '*',

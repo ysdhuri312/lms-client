@@ -30,7 +30,9 @@ const Header = () => {
           <nav className='hidden md:flex items-center'>
             {isAuthenticated ? (
               <div className='flex items-center group'>
-                <Link className='ml-4 text-sm'>My Enrollments</Link>
+                <Link to='/my-courses' className='ml-4 text-sm'>
+                  My Enrollments
+                </Link>
                 <Link className='ml-4 relative'>
                   <img
                     src='https://randomuser.me/api/portraits/men/32.jpg'

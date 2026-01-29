@@ -35,7 +35,10 @@ const AuthMobileMenu = ({ setMobileMenu }) => {
             <span className='text-sm opacity-70'>Welcome back</span>
           </p>
         </Link>
-        <Link className='text-sm mb-2 bg-gray-200 py-2 pl-2 rounded-sm'>
+        <Link
+          to='/my-courses'
+          className='text-sm mb-2 bg-gray-200 py-2 pl-2 rounded-sm'
+        >
           My Enrollments
         </Link>
         <Link className='text-sm mb-2 bg-gray-200 py-2 pl-2 rounded-sm'>
