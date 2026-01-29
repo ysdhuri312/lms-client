@@ -8,7 +8,6 @@ import GuestMobileMenu from './GuestMobileMenu';
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [popupMenu, setPopupMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('');
 
   const isAuthenticated = true;
@@ -30,40 +29,36 @@ const Header = () => {
           </div>
           <nav className='hidden md:flex items-center'>
             {isAuthenticated ? (
-              <div className='flex items-center'>
+              <div className='flex items-center group'>
                 <Link className='ml-4 text-sm'>My Enrollments</Link>
-                <Link className='ml-4' onMouseEnter={() => setPopupMenu(true)}>
+                <Link className='ml-4 relative'>
                   <img
                     src='https://randomuser.me/api/portraits/men/32.jpg'
                     className='w-8 h-8 rounded-full'
                   />
                 </Link>
-                {popupMenu && (
-                  <div
-                    className='absolute top-12 right-5 topmax-w-xs rounded-lg border border-gray-200 bg-white overflow-hidden shadow-sm p-3'
-                    onMouseLeave={() => setPopupMenu(false)}
-                  >
-                    <div className='flex flex-col'>
-                      <div className='flex items-center gap-2'>
-                        <img
-                          src='https://randomuser.me/api/portraits/men/32.jpg'
-                          className='w-12 h-12 rounded-full'
-                        />
-                        <div className='flex flex-col'>
-                          <span className='text-blue-700'>
-                            YOGESH SITARAM DHURI
-                          </span>
-                          <span className='text-sm opacity-70'>
-                            ysdhuri312@gmail.com
-                          </span>
-                        </div>
+
+                <div className='absolute top-12 right-5 topmax-w-xs rounded-lg border border-gray-200 bg-white overflow-hidden shadow-sm p-3  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50'>
+                  <div className='flex flex-col'>
+                    <div className='flex items-center gap-2'>
+                      <img
+                        src='https://randomuser.me/api/portraits/men/32.jpg'
+                        className='w-12 h-12 rounded-full'
+                      />
+                      <div className='flex flex-col'>
+                        <span className='text-blue-700'>
+                          YOGESH SITARAM DHURI
+                        </span>
+                        <span className='text-sm opacity-70'>
+                          ysdhuri312@gmail.com
+                        </span>
                       </div>
-                      <hr className='text-gray-200 my-2' />
-                      <Link>Account sttings</Link>
-                      <Link>Logout</Link>
                     </div>
+                    <hr className='text-gray-200 my-2' />
+                    <Link>Account sttings</Link>
+                    <Link>Logout</Link>
                   </div>
-                )}
+                </div>
               </div>
             ) : (
               <div className='flex items-center'>
