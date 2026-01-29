@@ -1,11 +1,36 @@
 /** @format */
+import { Link } from 'react-router-dom';
 import { google, apple, facebook } from '../../../assets';
+import { useRef } from 'react';
 
 const RegisterForm = () => {
+  const fullNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const newsletterRef = useRef(null);
+
+  const hnadleSubmit = (e) => {
+    e.preventDefault();
+
+    const fullName = fullNameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const newsletter = newsletterRef.current.checked;
+
+    console.log(fullName, email, password, newsletter);
+
+    fullNameRef.current.value = '';
+    emailRef.current.value = '';
+    passwordRef.current.value = '';
+  };
+
   return (
-    <div className='flex flex-col justify-center w-full max-w-md mx-auto px-6'>
+    <form
+      onSubmit={hnadleSubmit}
+      className='flex flex-col justify-center w-full max-w-md mx-auto px-6 mt-8'
+    >
       <h1 className='text-3xl font-bold text-gray-900 text-center mb-8'>
-        Sign up with email
+        Register with email
       </h1>
 
       {/* Full Name */}
@@ -14,6 +39,7 @@ const RegisterForm = () => {
         placeholder='Full name'
         className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm
                    focus:outline-none focus:ring-2 focus:ring-blue-600'
+        ref={fullNameRef}
       />
 
       <input
@@ -21,6 +47,14 @@ const RegisterForm = () => {
         placeholder='Email'
         className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm
                    focus:outline-none focus:ring-2 focus:ring-blue-600'
+        ref={emailRef}
+      />
+
+      <input
+        type='password'
+        placeholder='Password'
+        className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
+        ref={passwordRef}
       />
 
       <label className='flex items-start gap-3 text-sm text-gray-600 mb-6'>
@@ -28,6 +62,7 @@ const RegisterForm = () => {
           type='checkbox'
           defaultChecked
           className='mt-1 accent-blue-600'
+          ref={newsletterRef}
         />
         <span>
           Send me special offers, personalized recommendations, and learning
@@ -36,6 +71,7 @@ const RegisterForm = () => {
       </label>
 
       <button
+        type='submit'
         className='w-full bg-blue-600 hover:bg-blue-700 text-white
                          font-semibold py-3 rounded-lg transition mb-8'
       >
@@ -74,11 +110,11 @@ const RegisterForm = () => {
 
       <div className='bg-gray-50 rounded-lg py-4 text-center text-sm'>
         Already have an account?{' '}
-        <a href='#' className='text-blue-600 font-semibold'>
+        <Link to='/login' className='text-blue-600 font-semibold'>
           Log in
-        </a>
+        </Link>
       </div>
-    </div>
+    </form>
   );
 };
 export default RegisterForm;

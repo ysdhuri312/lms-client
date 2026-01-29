@@ -1,10 +1,30 @@
 /** @format */
 
+import { Link } from 'react-router-dom';
 import { google, apple, facebook } from '../../../assets';
+import { useRef } from 'react';
 
 const LoginForm = () => {
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    console.log(email, password);
+
+    emailRef.current.value = '';
+    passwordRef.current.value = '';
+  };
+
   return (
-    <div className='flex flex-col justify-center w-full max-w-md mx-auto px-6'>
+    <form
+      className='flex flex-col justify-center w-full max-w-md mx-auto px-6'
+      onSubmit={handleSubmit}
+    >
       <h1 className='text-3xl font-bold text-gray-900 text-center mb-8'>
         Log in to continue your <br /> learning journey
       </h1>
@@ -12,10 +32,21 @@ const LoginForm = () => {
       <input
         type='email'
         placeholder='Email'
-        className='w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
+        className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
+        ref={emailRef}
       />
 
-      <button className='w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition'>
+      <input
+        type='password'
+        placeholder='Password'
+        className='w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
+        ref={passwordRef}
+      />
+
+      <button
+        type='submit'
+        className='w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition'
+      >
         Continue
       </button>
 
@@ -39,11 +70,11 @@ const LoginForm = () => {
 
       <div className='bg-gray-50 rounded-lg py-4 text-center text-sm'>
         Don&apos;t have an account?{' '}
-        <a href='#' className='text-blue-600 font-semibold'>
-          Sign up
-        </a>
+        <Link to='/register' className='text-blue-600 font-semibold'>
+          Register
+        </Link>
       </div>
-    </div>
+    </form>
   );
 };
 
