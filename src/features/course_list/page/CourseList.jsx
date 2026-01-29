@@ -7,7 +7,6 @@ import { useAllCourses } from '../hooks/useAllCourses';
 const CourseList = () => {
   const { allCourses, error, loading } = useAllCourses();
 
-  if (error) return <p>Somthing went worng...</p>;
   if (loading) return <p>Courses loding...</p>;
 
   return (
@@ -35,20 +34,24 @@ const CourseList = () => {
         </div>
       </div>
       <div className='mt-10 flex flex-wrap justify-center sm:justify-items-start gap-5'>
-        {allCourses.map((course) => {
-          const { id, thumbnail, ratings, title, price } = course;
+        {error ? (
+          <p className='texl-xl text-red-500'>Something went wrong...</p>
+        ) : (
+          allCourses.map((course) => {
+            const { id, thumbnail, ratings, title, price } = course;
 
-          return (
-            <CourseCard
-              key={id}
-              id={id}
-              thumbnail={thumbnail}
-              ratings={ratings}
-              title={title}
-              price={price}
-            />
-          );
-        })}
+            return (
+              <CourseCard
+                key={id}
+                id={id}
+                thumbnail={thumbnail}
+                ratings={ratings}
+                title={title}
+                price={price}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );
