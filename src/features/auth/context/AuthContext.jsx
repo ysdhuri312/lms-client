@@ -4,15 +4,15 @@ import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext(null);
 
-const user = {
-  id: 1,
-  name: 'Yogesh',
-  role: 'student',
-  avatar: '/avatar.png',
-};
-
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const userData = {
+    id: 1,
+    name: 'Yogesh',
+    role: 'student',
+    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+  };
+
+  const [user, setUser] = useState(userData);
 
   const login = (userData) => {
     setUser(userData);
