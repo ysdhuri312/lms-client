@@ -11,6 +11,7 @@ import Course from '../features/course/pages/Course';
 import NotFound from '../shared/components/NotFound';
 import Enrollments from '../features/student/components/Enrollments';
 import StudentPage from '../features/student/pages/StudentPage';
+import ProtectedRoute from '../features/auth/components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
         ],
       },
       {
-        element: <StudentPage />,
+        element: (
+          <ProtectedRoute role='student'>
+            <StudentPage />
+          </ProtectedRoute>
+        ),
         children: [{ path: '/my-courses', element: <Enrollments /> }],
       },
       {
