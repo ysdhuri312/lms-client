@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             <StudentPage />
           </ProtectedRoute>
         ),
-        children: [{ path: '/my-courses', element: <Enrollments /> }],
+        children: [{ path: '/my-courses', element: <Enrollments /> }, {}],
       },
       {
         path: '*',
