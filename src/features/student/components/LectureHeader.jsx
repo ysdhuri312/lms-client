@@ -1,7 +1,7 @@
 /** @format */
 
 import { ArrowLeft } from 'lucide-react';
-import { Link, useOutletContext } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LectureHeader = ({ course }) => {
   return (

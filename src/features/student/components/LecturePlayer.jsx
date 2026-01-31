@@ -1,6 +1,14 @@
 /** @format */
 
+import { useOutletContext } from 'react-router-dom';
+import Accordion from '../../../shared/components/Accordion';
+import { Play } from 'lucide-react';
+
 const LecturePlayer = () => {
+  const { course } = useOutletContext();
+
+  const { modules } = course;
+
   return (
     <>
       <div className='h-screen grid grid-cols-1 lg:grid-cols-4 pt-14'>
@@ -15,27 +23,52 @@ const LecturePlayer = () => {
         </div>
 
         {/* SIDEBAR */}
-        <div className='bg-white border-l overflow-y-auto'>
-          <div className='p-4 border-b'>
-            <h2 className='font-semibold text-lg'>
-              Cloud Computing Essentials
-            </h2>
-            <p className='text-sm text-gray-500'>
-              Lecture 2: Cloud Service Models
-            </p>
-          </div>
+        <div className='bg-white border-l overflow-y-auto '>
+          <div>
+            {modules.map((module) => {
+              const { moduleId, title, moduleTime, lessonsCount, lessons } =
+                module;
 
-          <ul className='divide-y'>
-            <li className='p-4 hover:bg-gray-50 cursor-pointer'>
-              ✅ Introduction
-            </li>
-            <li className='p-4 bg-blue-50 cursor-pointer'>
-              ▶ Cloud Service Models
-            </li>
-            <li className='p-4 hover:bg-gray-50 cursor-pointer'>
-              ⏱ Deployment Models
-            </li>
-          </ul>
+              return (
+                <Accordion
+                  key={moduleId}
+                  title={title}
+                  value={'11 / 11 | 42min'}
+                >
+                  {lessons.map((lesson) => {
+                    const { lessonId, lessonTime, title } = lesson;
+
+                    return (
+                      <div
+                        key={lessonId}
+                        className='w-full flex items-center gap-2 px-5 py-1 hover:bg-gray-50'
+                      >
+                        <div>
+                          <input
+                            type='checkbox'
+                            className='text-blue-600 checked:bg-blue-600'
+                          />
+                        </div>
+                        <div className='w-full flex flex-col'>
+                          <p className='text-xs cursor-pointer mb-1 line-h'>
+                            {title}
+                          </p>
+                          <div className='text-xs text-gray-500'>
+                            <div className='flex items-center gap-1'>
+                              <span>
+                                <Play size={10} />
+                              </span>
+                              <span>{lessonTime}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </Accordion>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
