@@ -52,7 +52,7 @@
       "description": "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!",
       "category": "Development",
       "price": 49.99,
-      "courseTime": "49 hours, 30 minutes",
+      "courseTime": "49hr 30min",
       "ratings": 4,
       "enrolledStudents": 12,
       "ratedStudents": 5,
@@ -61,25 +61,25 @@
         {
           "moduleId": "m1",
           "title": "Getting Started",
-          "moduleTime": "49 hours, 30 minutes",
+          "moduleTime": "49hr 30min",
           "lessonsCount": 3,
           "lessons": [
             {
               "lessonId": "l1",
               "title": "Welcome To The Course!",
-              "lessonTime": "10 minutes",
+              "lessonTime": "10:00",
               "preview": true
             },
             {
               "lessonId": "l2",
               "title": "ReactJS vs 'Vanilla JavaScript': Why Use React?",
-              "lessonTime": "15 minutes",
+              "lessonTime": "15:00",
               "preview": false
             },
             {
               "lessonId": "l3",
               "title": "Editing Our First React App",
-              "lessonTime": "7 minutes",
+              "lessonTime": "7:00",
               "preview": false
             }
           ]
@@ -87,23 +87,25 @@
         {
           "moduleId": "m2",
           "title": "React Essentials - Components, JSX, Props, State & More",
+          "moduleTime": "1hr 30min",
+          "lessonsCount": 12,
           "lessons": [
             {
               "lessonId": "l1",
               "title": "Module Introduction",
-              "lessonTime": "3 minutes",
+              "lessonTime": "3:00",
               "preview": true
             },
             {
               "lessonId": "l2",
               "title": "JSX & React Components [Core Concept]",
-              "lessonTime": "12 minutes",
+              "lessonTime": "12:00",
               "preview": false
             },
             {
               "lessonId": "l3",
               "title": "Using & Outputting Dynamic Values [Core Concept]",
-              "lessonTime": "9 minutes",
+              "lessonTime": "9:00",
               "preview": false
             }
           ]
