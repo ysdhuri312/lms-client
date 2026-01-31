@@ -13,24 +13,22 @@ import EnrollmentsPage from '../features/student/pages/EnrollmentsPage';
 import ProtectedRoute from '../routes/ProtectedRoute';
 import MainLayout from '../shared/layouts/MainLayout';
 import Home from '../pages/home/pages/Home';
+import studentRoutes from '../features/student/router';
 
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
-    children: [{ element: <Home />, index: true }, authRoutes, courseRoutes],
+    children: [
+      { element: <Home />, index: true },
+      authRoutes,
+      courseRoutes,
+      studentRoutes,
+    ],
   },
-
-  //       element: (
-  //         <ProtectedRoute role='student'>
-  //           <StudentPage />
-  //         </ProtectedRoute>
-  //       ),
-  //       children: [{ path: '/my-courses', element: <EnrollmentsPage /> }],
-  //     },
-  //     {
-  //       path: '*',
-  //       element: <NotFound />,
-  //     },
+  {
+    path: '*',
+    element: <NotFound />,
+  },
   //   ],
   // },
   // {
