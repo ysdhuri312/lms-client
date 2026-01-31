@@ -13,7 +13,10 @@ const EnrollmentCourseCard = ({ course }) => {
             className='w-24 h-14 object-cover rounded-xs'
           />
           <div className='flex-1'>
-            <Link className='font-medium text-gray-900 mb-2'>
+            <Link
+              to={`/course/${course.id}/lectures`}
+              className='font-medium text-gray-900 mb-2'
+            >
               {course.title}
             </Link>
 
