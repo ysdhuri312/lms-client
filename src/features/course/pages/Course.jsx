@@ -1,8 +1,8 @@
 /** @format */
 
 import { useParams } from 'react-router-dom';
-import CourseContent from '../components/CourseContent';
-import CourseSidebar from '../components/CourseSidebar';
+import CourseContent from '../components/details/CourseContent';
+import CourseSidebar from '../components/details/CourseSidebar';
 
 const Course = () => {
   const { id } = useParams();

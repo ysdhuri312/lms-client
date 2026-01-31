@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
-import findCourseById from '../course.api';
+import findCourseById from '../api/course.api';
 
 const useCourseDetails = (id) => {
   const [course, setCourse] = useState({});

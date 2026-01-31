@@ -1,6 +1,6 @@
 /** @format */
 
-import axios from '../../shared/services/apiClient.js';
+import axios from '../../../shared/services/apiClient';
 
 const findCourseById = (id) => {
   return axios.get(`/courses/${id}`);

@@ -1,6 +1,6 @@
 /** @format */
 
-import useCourseDetails from '../hooks/useCourseDetails';
+import useCourseDetails from '../../hooks/useCourseDetails';
 
 const CourseSidebar = ({ id }) => {
   const { course, error, loading } = useCourseDetails(id);

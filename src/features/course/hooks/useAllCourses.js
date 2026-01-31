@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
-import fetchAllCourses from '../courseList.api.js';
+import fetchAllCourses from '../api/courseList.api';
 
 export const useAllCourses = () => {
   const [allCourses, setAllCourses] = useState([]);

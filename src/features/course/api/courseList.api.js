@@ -1,6 +1,6 @@
 /** @format */
 
-import axios from '../../shared/services/apiClient.js';
+import axios from '../../../shared/services/apiClient.js';
 
 const fetchFeaturedCourses = () => {
   return axios.get('/courses');

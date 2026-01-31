@@ -1,9 +1,9 @@
 /** @format */
 
 import { Play } from 'lucide-react';
-import Accordion from '../../../shared/components/Accordion';
-import Stars from '../../../shared/components/Stars';
-import useCourseDetails from '../hooks/useCourseDetails';
+import Accordion from '../../../../shared/components/Accordion';
+import Stars from '../../../../shared/components/Stars';
+import useCourseDetails from '../../hooks/useCourseDetails';
 
 const CourseContent = ({ id }) => {
   const { course, error, loading } = useCourseDetails(id);
