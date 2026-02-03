@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
   };
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(userData);
 
   const login = (userData) => {
     setUser(userData);
