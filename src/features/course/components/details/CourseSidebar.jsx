@@ -1,8 +1,10 @@
 /** @format */
 
+import { useNavigate } from 'react-router-dom';
 import useCourseDetails from '../../hooks/useCourseDetails';
 
 const CourseSidebar = ({ id }) => {
+  const navigate = useNavigate();
   const { course, error, loading } = useCourseDetails(id);
 
   if (error) return <p>Somthing went wrong....</p>;
@@ -35,7 +37,10 @@ const CourseSidebar = ({ id }) => {
             <span>📘 {moduleCount} lessons</span>
           </div>
 
-          <button className='w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold mb-6'>
+          <button
+            onClick={() => navigate(`/checkout/${id}`)}
+            className='w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold mb-6'
+          >
             Enroll Now
           </button>
 
