@@ -38,14 +38,14 @@ const CourseList = () => {
           <p className='texl-xl text-red-500'>Something went wrong...</p>
         ) : (
           allCourses.map((course) => {
-            const { id, thumbnail, ratings, title, price } = course;
+            const { slug, thumbnail, stats, title, price } = course;
 
             return (
               <CourseCard
-                key={id}
-                id={id}
+                key={slug}
+                slug={slug}
                 thumbnail={thumbnail}
-                ratings={ratings}
+                ratings={stats.ratings}
                 title={title}
                 price={price}
               />

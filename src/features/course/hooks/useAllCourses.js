@@ -11,7 +11,7 @@ export const useAllCourses = () => {
   useEffect(() => {
     fetchAllCourses()
       .then((res) => {
-        const getAllCourses = res.data;
+        const getAllCourses = res.data.courses;
         setAllCourses(getAllCourses);
       })
       .catch((err) => setError(err))

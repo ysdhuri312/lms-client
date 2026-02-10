@@ -3,14 +3,16 @@
 import { useNavigate } from 'react-router-dom';
 import useCourseDetails from '../../hooks/useCourseDetails';
 
-const CourseSidebar = ({ id }) => {
+const CourseSidebar = ({ slug }) => {
   const navigate = useNavigate();
-  const { course, error, loading } = useCourseDetails(id);
+  const { course, error, loading } = useCourseDetails(slug);
 
   if (error) return <p>Somthing went wrong....</p>;
   if (loading) return <p>Course details loading...</p>;
 
-  const { price, courseTime, moduleCount, thumbnail } = course;
+  const { price, stats, moduleCount, thumbnail } = course;
+
+  console.log(course);
 
   return (
     <div className='sticky top-6'>
@@ -33,8 +35,8 @@ const CourseSidebar = ({ id }) => {
           </div>
 
           <div className='flex justify-between text-sm text-gray-600 mb-6'>
-            <span>⏱ {courseTime}</span>
-            <span>📘 {moduleCount} lessons</span>
+            <span>⏱ {stats.courseTime}</span>
+            <span>📘 {stats.totalLessons} lessons</span>
           </div>
 
           <button

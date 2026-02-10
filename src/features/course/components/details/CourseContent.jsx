@@ -5,14 +5,13 @@ import Accordion from '../../../../shared/components/Accordion';
 import Stars from '../../../../shared/components/Stars';
 import useCourseDetails from '../../hooks/useCourseDetails';
 
-const CourseContent = ({ id }) => {
-  const { course, error, loading } = useCourseDetails(id);
+const CourseContent = ({ slug }) => {
+  const { course, error, loading } = useCourseDetails(slug);
 
   if (error) return <p>Somthing went worng...</p>;
   if (loading) return <p>Courses loading...</p>;
 
-  const { title, category, description, enrolledStudents, ratings, modules } =
-    course;
+  const { title, category, description, stats, modules } = course;
 
   return (
     <>
@@ -24,15 +23,15 @@ const CourseContent = ({ id }) => {
 
       <div className='flex items-center gap-2 text-sm mb-5 opacity-70'>
         <div className='flex gap-2'>
-          <span>{ratings}</span>
+          <span>{stats.ratings}</span>
           <div>
-            <Stars ratings={ratings} />
+            <Stars ratings={stats.ratings} />
           </div>
           <p>
             (<span>5</span> ratings)
           </p>
           <p>
-            <span>{enrolledStudents}</span> students
+            <span>{stats.enrolledStudents}</span> students
           </p>
         </div>
       </div>
@@ -41,20 +40,20 @@ const CourseContent = ({ id }) => {
 
       <div className='space-y-4 mb-10'>
         {modules.map((module) => {
-          const { moduleId, title, moduleTime, lessonsCount, lessons } = module;
+          const { _id, title, moduleDuration, lessonsCount, lessons } = module;
 
           return (
             <Accordion
-              key={moduleId}
+              key={_id}
               title={title}
-              value={`${lessonsCount} lectures • ${moduleTime}`}
+              value={`${lessonsCount} lectures • ${moduleDuration}`}
             >
               {lessons.map((lesson) => {
-                const { lessonId, lessonTime, preview, title } = lesson;
+                const { _id, duration, isPreview, title } = lesson;
 
                 return (
                   <div
-                    key={lessonId}
+                    key={_id}
                     className='w-full flex justify-between items-center px-5 py-1 text-left hover:bg-gray-50'
                   >
                     <p className='flex items-center gap-4 text-sm cursor-pointer'>
@@ -63,11 +62,11 @@ const CourseContent = ({ id }) => {
                       </span>
                       {title}
                     </p>
-                    {preview && (
+                    {isPreview && (
                       <span className='underline cursor-pointer'>Preview</span>
                     )}
                     <div className='flex items-center gap-4 text-sm text-gray-500'>
-                      <span>{lessonTime}</span>
+                      <span>{duration}</span>
                     </div>
                   </div>
                 );

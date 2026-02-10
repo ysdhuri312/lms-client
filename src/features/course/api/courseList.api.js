@@ -2,8 +2,8 @@
 
 import axios from '../../../shared/services/apiClient.js';
 
-const fetchFeaturedCourses = () => {
+const fetchAllCourses = () => {
   return axios.get('/courses');
 };
 
-export default fetchFeaturedCourses;
+export default fetchAllCourses;

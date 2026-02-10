@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
-import fetchFeaturedCourses from '../home.api';
+import fetchAllCourses from '../home.api';
 
 export const useFeaturedCourses = () => {
   const [featuredCourses, setFeaturedCourses] = useState([]);
@@ -9,10 +9,10 @@ export const useFeaturedCourses = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchFeaturedCourses()
+    fetchAllCourses()
       .then((res) => {
-        const filterFeaturedCourses = res.data
-          .sort((a, b) => b.ratings - a.ratings)
+        const filterFeaturedCourses = res.data.courses
+          .sort((a, b) => b.stats.ratings - a.stats.ratings)
           .slice(0, 4);
         setFeaturedCourses(filterFeaturedCourses);
       })

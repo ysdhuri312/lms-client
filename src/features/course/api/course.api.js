@@ -2,8 +2,8 @@
 
 import axios from '../../../shared/services/apiClient';
 
-const findCourseById = (id) => {
-  return axios.get(`/courses/${id}`);
+const findCourseById = (slug) => {
+  return axios.get(`/courses/${slug}`);
 };
 
 export default findCourseById;

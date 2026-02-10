@@ -7,7 +7,7 @@ const courseRoutes = {
   path: 'courses',
   children: [
     { index: true, element: <CourseList /> },
-    { path: ':id', element: <Course /> },
+    { path: ':slug', element: <Course /> },
   ],
 };
 
