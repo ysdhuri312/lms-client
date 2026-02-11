@@ -10,7 +10,7 @@ const LoginForm = () => {
   const passwordRef = useRef(null);
   const navigate = useNavigate();
 
-  const [customError, setCustomError] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,16 +20,17 @@ const LoginForm = () => {
 
     try {
       const response = await userLogin({ email, password });
-      console.log('Login success:', response.data);
 
-      if (response.data.success) {
+      console.log(response);
+      if (response.success) {
         navigate('/', { replace: true });
 
         emailRef.current.value = '';
         passwordRef.current.value = '';
       }
     } catch (error) {
-      console.log(error);
+      alert(error.message);
+      setError(error.message);
     }
   };
 
