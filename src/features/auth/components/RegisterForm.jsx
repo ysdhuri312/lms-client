@@ -1,32 +1,44 @@
 /** @format */
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { google, apple, facebook } from '../../../assets';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import userRegister from '../api/register.api';
 
 const RegisterForm = () => {
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const newsletterRef = useRef(null);
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
-  const hnadleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const fullName = fullNameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    const newsletter = newsletterRef.current.checked;
+    // const newsletter = newsletterRef.current.checked;
 
-    console.log(fullName, email, password, newsletter);
+    try {
+      const response = await userRegister({ fullName, email, password });
 
-    fullNameRef.current.value = '';
-    emailRef.current.value = '';
-    passwordRef.current.value = '';
+      if (response.data.success) {
+        navigate('/', { replace: true });
+
+        fullNameRef.current.value = '';
+        emailRef.current.value = '';
+        passwordRef.current.value = '';
+      }
+    } catch (error) {
+      alert(error.message);
+      setError(error.message);
+    }
   };
 
   return (
     <form
-      onSubmit={hnadleSubmit}
+      onSubmit={handleSubmit}
       className='flex flex-col justify-center w-full max-w-md mx-auto px-6 mt-8'
     >
       <h1 className='text-3xl font-bold text-gray-900 text-center mb-8'>
@@ -40,6 +52,7 @@ const RegisterForm = () => {
         className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm
                    focus:outline-none focus:ring-2 focus:ring-blue-600'
         ref={fullNameRef}
+        required
       />
 
       <input
@@ -48,6 +61,7 @@ const RegisterForm = () => {
         className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm
                    focus:outline-none focus:ring-2 focus:ring-blue-600'
         ref={emailRef}
+        required
       />
 
       <input
@@ -55,6 +69,7 @@ const RegisterForm = () => {
         placeholder='Password'
         className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
         ref={passwordRef}
+        required
       />
 
       <label className='flex items-start gap-3 text-sm text-gray-600 mb-6'>
@@ -73,7 +88,7 @@ const RegisterForm = () => {
       <button
         type='submit'
         className='w-full bg-blue-600 hover:bg-blue-700 text-white
-                         font-semibold py-3 rounded-lg transition mb-8'
+                         font-semibold py-3 rounded-lg transition mb-8 cursor-pointer'
       >
         Continue
       </button>
