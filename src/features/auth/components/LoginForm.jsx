@@ -1,23 +1,36 @@
 /** @format */
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { google, apple, facebook } from '../../../assets';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import userLogin from '../api/login.api';
 
 const LoginForm = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [customError, setCustomError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    console.log(email, password);
+    try {
+      const response = await userLogin({ email, password });
+      console.log('Login success:', response.data);
 
-    emailRef.current.value = '';
-    passwordRef.current.value = '';
+      if (response.data.success) {
+        navigate('/', { replace: true });
+
+        emailRef.current.value = '';
+        passwordRef.current.value = '';
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -34,6 +47,7 @@ const LoginForm = () => {
         placeholder='Email'
         className='w-full mb-5 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
         ref={emailRef}
+        required
       />
 
       <input
@@ -41,6 +55,7 @@ const LoginForm = () => {
         placeholder='Password'
         className='w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600'
         ref={passwordRef}
+        required
       />
 
       <button

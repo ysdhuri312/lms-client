@@ -44,11 +44,11 @@ const FeaturedCourses = () => {
             <p className='text-xl text-red-600'>Something went wrong...</p>
           ) : (
             featuredCourses.map((course) => {
-              const { id, slug, stats, thumbnail, title, price } = course;
+              const { slug, stats, thumbnail, title, price } = course;
 
               return (
                 <CourseCard
-                  key={id}
+                  key={slug}
                   slug={slug}
                   thumbnail={thumbnail}
                   ratings={stats.ratings}
