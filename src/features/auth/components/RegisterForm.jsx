@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { google, apple, facebook } from '../../../assets';
 import { useRef, useState } from 'react';
 import userRegister from '../api/register.api';
+import { useAuth } from '../context/AuthContext';
 
 const RegisterForm = () => {
   const fullNameRef = useRef(null);
@@ -10,7 +11,8 @@ const RegisterForm = () => {
   const passwordRef = useRef(null);
   const newsletterRef = useRef(null);
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
+
+  const { user, setUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,8 @@ const RegisterForm = () => {
     try {
       const response = await userRegister({ fullName, email, password });
 
-      if (response.data.success) {
+      if (response.success) {
+        setUser(response.data);
         navigate('/', { replace: true });
 
         fullNameRef.current.value = '';

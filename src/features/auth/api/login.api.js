@@ -4,9 +4,9 @@ import axios from '../../../shared/services/apiClient';
 
 const userLogin = async (data) => {
   try {
-    const response = await axios.post('/auth/login', data);
+    await axios.post('/auth/login', data);
 
-    return response.data;
+    return axios.get('/auth/me');
   } catch (error) {
     const message =
       error.response?.data?.message || error.message || 'Invalid credential';

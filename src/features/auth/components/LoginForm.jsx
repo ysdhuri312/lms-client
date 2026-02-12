@@ -4,13 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { google, apple, facebook } from '../../../assets';
 import { useRef, useState } from 'react';
 import userLogin from '../api/login.api';
+import { useAuth } from '../context/AuthContext';
 
 const LoginForm = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
 
-  const [error, setError] = useState(null);
+  const { user, setUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,8 +22,8 @@ const LoginForm = () => {
     try {
       const response = await userLogin({ email, password });
 
-      console.log(response);
-      if (response.success) {
+      if (response.data.success) {
+        setUser(response.data.data);
         navigate('/', { replace: true });
 
         emailRef.current.value = '';

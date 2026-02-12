@@ -11,7 +11,7 @@ const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('');
 
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
 
   return (
     <header className='fixed w-full z-50 border-b border-[rgba(0,0,0,0.1)] backdrop-blur-sm'>
@@ -59,7 +59,9 @@ const Header = () => {
                     </div>
                     <hr className='text-gray-200 my-2' />
                     <Link>Account sttings</Link>
-                    <Link>Logout</Link>
+                    <Link to='/' onClick={() => setUser(null)}>
+                      Logout
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -108,7 +110,7 @@ const Header = () => {
       {mobileMenu && (
         <div>
           {user ? (
-            <AuthMobileMenu setMobileMenu={setMobileMenu} />
+            <AuthMobileMenu setMobileMenu={setMobileMenu} setUser={setUser} />
           ) : (
             <GuestMobileMenu
               setMobileMenu={setMobileMenu}

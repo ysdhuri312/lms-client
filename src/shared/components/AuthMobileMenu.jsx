@@ -2,7 +2,7 @@
 
 import { Link } from 'react-router-dom';
 
-const AuthMobileMenu = ({ setMobileMenu }) => {
+const AuthMobileMenu = ({ setMobileMenu, setUser }) => {
   return (
     <div className='md:hidden max-w-7xl mx-auto px-4 sm:px-6 md:px-8'>
       <div className='my-2'>
@@ -44,7 +44,11 @@ const AuthMobileMenu = ({ setMobileMenu }) => {
         <Link className='text-sm mb-2 bg-gray-200 py-2 pl-2 rounded-sm'>
           Account Settings
         </Link>
-        <Link className='text-sm mb-2 bg-gray-200 py-2 pl-2 rounded-sm'>
+        <Link
+          to='/'
+          onClick={() => setUser(null)}
+          className='text-sm mb-2 bg-gray-200 py-2 pl-2 rounded-sm'
+        >
           Logout
         </Link>
       </div>
