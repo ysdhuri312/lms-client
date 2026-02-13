@@ -62,7 +62,7 @@ const LoginForm = () => {
 
       <button
         type='submit'
-        className='w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition'
+        className='w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition cursor-pointer'
       >
         Continue
       </button>
@@ -74,20 +74,23 @@ const LoginForm = () => {
       </div>
 
       <div className='flex justify-center gap-4 mb-8'>
-        <button className='w-12 h-12 border rounded-lg flex items-center justify-center hover:bg-gray-50'>
+        <button className='w-12 h-12 border rounded-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer'>
           <img src={google} alt='Google' className='w-5' />
         </button>
         <button className='w-12 h-12 border rounded-lg flex items-center justify-center hover:bg-gray-50'>
-          <img src={facebook} alt='Facebook' className='w-5' />
+          <img src={facebook} alt='Facebook' className='w-5 cursor-pointer' />
         </button>
         <button className='w-12 h-12 border rounded-lg flex items-center justify-center hover:bg-gray-50'>
-          <img src={apple} alt='Apple' className='w-5' />
+          <img src={apple} alt='Apple' className='w-5 cursor-pointer' />
         </button>
       </div>
 
       <div className='bg-gray-50 rounded-lg py-4 text-center text-sm'>
         Don&apos;t have an account?{' '}
-        <Link to='/register' className='text-blue-600 font-semibold'>
+        <Link
+          to='/register'
+          className='text-blue-600 font-semibold cursor-pointer'
+        >
           Register
         </Link>
       </div>

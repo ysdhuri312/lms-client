@@ -1,7 +1,6 @@
 /** @format */
 
 import ProtectedRoute from '../../routes/ProtectedRoute';
-import MainLayout from '../../shared/layouts/MainLayout';
 import Checkout from './pages/Checkout';
 
 const purchaseRoutes = {
@@ -11,7 +10,7 @@ const purchaseRoutes = {
       <Checkout />
     </ProtectedRoute>
   ),
-  children: [{ path: ':courseId', element: <Checkout /> }],
+  children: [{ path: ':slug', element: <Checkout /> }],
 };
 
 export default purchaseRoutes;
