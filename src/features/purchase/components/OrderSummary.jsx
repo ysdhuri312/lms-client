@@ -1,38 +1,36 @@
 /** @format */
 
-const OrderSummary = () => {
+import usePurchaseCourseDetails from '../hooks/usePurchaseCourseDetails';
+
+const OrderSummary = ({ slug }) => {
+  const { purchaseCourse, error, loading } = usePurchaseCourseDetails(slug);
+
+  if (error) return <p>Somthing went worng...</p>;
+  if (loading) return <p>Courses loading...</p>;
+
+  const { title, thumbnail, price } = purchaseCourse;
+
   return (
     <div className='bg-white rounded-lg border p-6 sticky top-6'>
       <h3 className='text-lg font-semibold mb-4'>Order summary</h3>
 
-      <div className='my-6'>
-        <h3 className='font-medium mb-2'>Order details (1 course)</h3>
-        <div className='flex items-center justify-between mb-3'>
-          <div className='flex items-center gap-3'>
-            <img src='https://via.placeholder.com/60x40' className='rounded' />
-            <p className='text-sm'>
-              The Complete Full-Stack Web Development Bootcamp
-            </p>
-          </div>
-          <div className='text-right text-sm'>
-            <p className='font-medium'>₹519</p>
-            <p className='line-through text-gray-400'>₹3,109</p>
-          </div>
-        </div>
-
-        <div className='flex items-center justify-between'>
-          <div className='flex items-center gap-3'>
-            <img src='https://via.placeholder.com/60x40' className='rounded' />
-            <p className='text-sm'>
-              The Complete Full-Stack Web Development Bootcamp
-            </p>
-          </div>
-          <div className='text-right text-sm'>
-            <p className='font-medium'>₹519</p>
-            <p className='line-through text-gray-400'>₹3,109</p>
+      {!Array.isArray({ purchaseCourse }) ? (
+        <div className='my-6'>
+          <h3 className='font-medium mb-2'>Order details (1 course)</h3>
+          <div className='flex items-center justify-between mb-3'>
+            <div className='flex items-center gap-3'>
+              <img src={thumbnail} className='rounded h-12 w-16' />
+              <p className='text-sm'>{title}</p>
+            </div>
+            <div className='text-right text-sm'>
+              <p className='font-medium'>₹{price}</p>
+              <p className='line-through text-gray-400'>₹3,109</p>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        'Under construction'
+      )}
 
       <div className='space-y-2 text-sm mb-4'>
         <div className='flex justify-between'>
@@ -47,7 +45,7 @@ const OrderSummary = () => {
 
       <div className='flex justify-between font-semibold text-lg mb-4'>
         <span>Total (1 course):</span>
-        <span>₹519</span>
+        <span>₹{price}</span>
       </div>
 
       <p className='text-xs text-gray-500 mb-4'>
@@ -59,7 +57,7 @@ const OrderSummary = () => {
       </p>
 
       <button className='w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold mb-4'>
-        🔒 Pay ₹519
+        🔒 Pay ₹{price}
       </button>
 
       <div className='text-center text-sm text-gray-600 mb-6'>

@@ -10,9 +10,7 @@ const CourseSidebar = ({ slug }) => {
   if (error) return <p>Somthing went wrong....</p>;
   if (loading) return <p>Course details loading...</p>;
 
-  const { price, stats, moduleCount, thumbnail } = course;
-
-  console.log(course);
+  const { price, stats, thumbnail } = course;
 
   return (
     <div className='sticky top-6'>
@@ -40,7 +38,7 @@ const CourseSidebar = ({ slug }) => {
           </div>
 
           <button
-            onClick={() => navigate(`/checkout/${id}`)}
+            onClick={() => navigate(`/checkout/${slug}`)}
             className='w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold mb-6'
           >
             Enroll Now
