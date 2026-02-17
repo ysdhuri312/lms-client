@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
-import findCourseById from '../api/purchase.api';
+import { findCourseById } from '../api/purchase.api';
 
 const usePurchaseCourseDetails = (slug) => {
   const [purchaseCourse, setPurchaseCourse] = useState({});
