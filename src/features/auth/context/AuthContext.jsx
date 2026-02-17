@@ -6,13 +6,6 @@ import axios from '../../../shared/services/apiClient';
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const userData = {
-    id: 1,
-    name: 'Yogesh',
-    role: 'student',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-  };
-
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
