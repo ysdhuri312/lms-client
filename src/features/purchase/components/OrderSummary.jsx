@@ -1,14 +1,31 @@
 /** @format */
 
+import { Link } from 'react-router-dom';
 import usePurchaseCourseDetails from '../hooks/usePurchaseCourseDetails';
+import { useRazorpay } from '../hooks/useRazorpay';
 
 const OrderSummary = ({ slug }) => {
   const { purchaseCourse, error, loading } = usePurchaseCourseDetails(slug);
+  const { startPayment } = useRazorpay();
 
   if (error) return <p>Somthing went worng...</p>;
   if (loading) return <p>Courses loading...</p>;
 
-  const { title, thumbnail, price } = purchaseCourse;
+  const { _id, title, thumbnail, price } = purchaseCourse;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    startPayment({
+      amount: price * 100,
+      currency: 'INR',
+      receipt: `reciept_${Date.now()}`,
+      notes: {
+        courseId: _id,
+        country: 'India',
+      },
+    });
+  };
 
   return (
     <div className='bg-white rounded-lg border p-6 sticky top-6'>
@@ -56,9 +73,14 @@ const OrderSummary = ({ slug }) => {
         .
       </p>
 
-      <button className='w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold mb-4'>
+      <Link
+        to={`${slug}/payment`}
+        onClick={handleSubmit}
+        type='button'
+        className='block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold mb-4 cursor-pointer'
+      >
         🔒 Pay ₹{price}
-      </button>
+      </Link>
 
       <div className='text-center text-sm text-gray-600 mb-6'>
         <p className='font-medium'>30-Day Money-Back Guarantee</p>
