@@ -4,9 +4,10 @@ import axios from '../../../shared/services/apiClient';
 
 const userRegister = async (data) => {
   try {
-    const response = await axios.post('/auth/register', data);
+    await axios.post('/auth/register', data);
+    const response = await axios.get('/auth/me');
 
-    return response.data;
+    return response.data.user;
   } catch (error) {
     const message =
       error.response?.data?.message ||
