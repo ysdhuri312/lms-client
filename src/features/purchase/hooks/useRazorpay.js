@@ -1,10 +1,14 @@
 /** @format */
 
+import { useAuth } from '../../auth/context/AuthContext';
 import { createOrder, verifyPayment } from '../api/purchase.api';
 import { useNavigate } from 'react-router-dom';
 
 export const useRazorpay = () => {
   const navigate = useNavigate();
+
+  const { user } = useAuth();
+  const { authId, fullname } = user;
 
   const startPayment = async (orderDetails) => {
     try {
@@ -22,8 +26,8 @@ export const useRazorpay = () => {
           description: 'Test Transaction',
           order_id: order.id, // This is the order_id created in the backend
           prefill: {
-            name: 'Gaurav Kumar',
-            email: 'gaurav.kumar@example.com',
+            name: fullname,
+            email: authId.email,
             contact: '9999999999',
           },
           theme: {

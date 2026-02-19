@@ -3,10 +3,13 @@
 import { Link } from 'react-router-dom';
 import usePurchaseCourseDetails from '../hooks/usePurchaseCourseDetails';
 import { useRazorpay } from '../hooks/useRazorpay';
+import { useAuth } from '../../auth/context/AuthContext';
 
 const OrderSummary = ({ slug }) => {
   const { purchaseCourse, error, loading } = usePurchaseCourseDetails(slug);
+
   const { startPayment } = useRazorpay();
+  const { user } = useAuth();
 
   if (error) return <p>Somthing went worng...</p>;
   if (loading) return <p>Courses loading...</p>;
@@ -21,6 +24,7 @@ const OrderSummary = ({ slug }) => {
       currency: 'INR',
       receipt: `reciept_${Date.now()}`,
       notes: {
+        userEmail: user.authId.email,
         courseId: _id,
         country: 'India',
       },
