@@ -20,10 +20,10 @@ const LoginForm = () => {
     const password = passwordRef.current.value;
 
     try {
-      const response = await userLogin({ email, password });
+      const user = await userLogin({ email, password });
 
-      if (response.data.success) {
-        setUser(response.data.data);
+      if (user) {
+        setUser(user);
         navigate('/', { replace: true });
 
         emailRef.current.value = '';

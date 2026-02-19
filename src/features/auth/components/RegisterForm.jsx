@@ -25,8 +25,8 @@ const RegisterForm = () => {
     try {
       const response = await userRegister({ fullName, email, password });
 
-      if (response.success) {
-        setUser(response.data);
+      if (user) {
+        setUser(user);
         navigate('/', { replace: true });
 
         fullNameRef.current.value = '';
