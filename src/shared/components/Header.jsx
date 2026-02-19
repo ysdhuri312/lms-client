@@ -2,16 +2,24 @@
 
 import { Menu, X, Search } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthMobileMenu from './AuthMobileMenu';
 import GuestMobileMenu from './GuestMobileMenu';
 import { useAuth } from '../../features/auth/context/AuthContext';
+import userLogout from '../../features/auth/api/logout.api';
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('');
+  const navigate = useNavigate();
 
   const { user, setUser } = useAuth();
+
+  const handleLogout = async () => {
+    await userLogout();
+    setUser(null);
+    navigate('/');
+  };
 
   return (
     <header className='fixed w-full z-50 border-b border-[rgba(0,0,0,0.1)] backdrop-blur-sm'>
@@ -49,17 +57,15 @@ const Header = () => {
                         className='w-12 h-12 rounded-full'
                       />
                       <div className='flex flex-col'>
-                        <span className='text-blue-700'>
-                          YOGESH SITARAM DHURI
-                        </span>
+                        <span className='text-blue-700'>{user?.fullName}</span>
                         <span className='text-sm opacity-70'>
-                          ysdhuri312@gmail.com
+                          {user?.authId.email}
                         </span>
                       </div>
                     </div>
                     <hr className='text-gray-200 my-2' />
                     <Link>Account sttings</Link>
-                    <Link to='/' onClick={() => setUser(null)}>
+                    <Link to='logout' onClick={handleLogout}>
                       Logout
                     </Link>
                   </div>
@@ -110,7 +116,11 @@ const Header = () => {
       {mobileMenu && (
         <div>
           {user ? (
-            <AuthMobileMenu setMobileMenu={setMobileMenu} setUser={setUser} />
+            <AuthMobileMenu
+              setMobileMenu={setMobileMenu}
+              logout={handleLogout}
+              user={user}
+            />
           ) : (
             <GuestMobileMenu
               setMobileMenu={setMobileMenu}
