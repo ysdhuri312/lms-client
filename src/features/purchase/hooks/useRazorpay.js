@@ -40,7 +40,8 @@ export const useRazorpay = () => {
               razorpay_signature: response.razorpay_signature,
             });
 
-            navigate('/my-courses');
+            alert('Payment successful, Course enrolled');
+            navigate('/student/enrollments');
           },
         };
 
