@@ -39,7 +39,7 @@ const Header = () => {
           <nav className='hidden md:flex items-center'>
             {user ? (
               <div className='flex items-center group'>
-                <Link to='/my-courses' className='ml-4 text-sm'>
+                <Link to='/student/enrollments' className='ml-4 text-sm'>
                   My Enrollments
                 </Link>
                 <Link className='ml-4 relative'>
@@ -57,9 +57,9 @@ const Header = () => {
                         className='w-12 h-12 rounded-full'
                       />
                       <div className='flex flex-col'>
-                        <span className='text-blue-700'>{user?.fullName}</span>
+                        <span className='text-blue-700'>{user.fullName}</span>
                         <span className='text-sm opacity-70'>
-                          {user?.authId.email}
+                          {user.authId.email}
                         </span>
                       </div>
                     </div>
