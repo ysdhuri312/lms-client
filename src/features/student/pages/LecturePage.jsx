@@ -1,6 +1,5 @@
 /** @format */
 
-import { Outlet } from 'react-router-dom';
 import LecturePlayer from '../components/LecturePlayer';
 
 const LecturePage = () => {
