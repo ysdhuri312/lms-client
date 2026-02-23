@@ -8,6 +8,7 @@ import LecturePage from './pages/LecturePage';
 import StudentPage from './pages/StudentPage';
 
 const studentRoutes = {
+  path: 'student',
   element: (
     <ProtectedRoute>
       <StudentPage role='student' />
@@ -15,7 +16,7 @@ const studentRoutes = {
   ),
   children: [
     { index: true, element: <Home /> },
-    { path: 'my-courses', element: <EnrollmentsPage /> },
+    { path: 'enrollments', element: <EnrollmentsPage /> },
     {
       element: <LectureLayout />,
       children: [
