@@ -23,7 +23,7 @@ const RegisterForm = () => {
     // const newsletter = newsletterRef.current.checked;
 
     try {
-      const response = await userRegister({ fullName, email, password });
+      const user = await userRegister({ fullName, email, password });
 
       if (user) {
         setUser(user);
